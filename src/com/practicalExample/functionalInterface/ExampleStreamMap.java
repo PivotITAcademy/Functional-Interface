@@ -1,8 +1,7 @@
 package com.practicalExample.functionalInterface;
 
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class ExampleStreamMap {
 
@@ -11,9 +10,12 @@ public class ExampleStreamMap {
 		
 		List<Product> myListOfProducts=ExampleData.getProducts();
 		
-		myListOfProducts.stream().map(p->p.getName()).filter(p->!p.contains("a")).forEach(s->System.out.println(s));;
+		myListOfProducts.stream().map(p->p.getName()).filter(p->!p.contains("a")).forEach(s->System.out.println(s));
 		
-
+		BigDecimal bg = new BigDecimal("10.00");
+		myListOfProducts.stream().anyMatch(p->p.getPrice().compareTo(bg)<0);
+		
+		
 	}
 
 }
